@@ -1,0 +1,22 @@
+.home-container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    align-content: stretch;
+    flex-grow: 2;
+    max-width: 100%;
+    background-color: aliceblue;
+    border-width: 5px;
+    border-color: blueviolet;
+    border-style: solid;
+}
+
+.favourite-item {
+    width: 50%;
+    text-align: center;
+}
+
+/* .home-picture {
+    display: block;
+    margin: auto;
+} */
