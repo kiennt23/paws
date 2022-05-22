@@ -14,10 +14,12 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import MenuLink from "./components/MenuLink";
 import RemoteRoute from "./components/RemoteRoute";
 
+const isProd = process.env.NODE_ENV === "production";
+
 const homeRemote: RemoteRoute = {
   label: "Home",
   path: "/home",
-  remoteUrl: "http://localhost:9001/remoteEntry.js",
+  remoteUrl: isProd? "https://d2yt125o7sij9g.cloudfront.net/home/remoteEntry.js" : "http://localhost:9001/remoteEntry.js",
   scope: "home",
   module: "./HomePage",
 };
@@ -25,7 +27,7 @@ const homeRemote: RemoteRoute = {
 const catRemote: RemoteRoute = {
   label: "Cat",
   path: "/cat",
-  remoteUrl: "http://localhost:9002/remoteEntry.js",
+  remoteUrl: isProd? "https://d2yt125o7sij9g.cloudfront.net/cat/remoteEntry.js" : "http://localhost:9002/remoteEntry.js",
   scope: "cat",
   module: "./CatPage",
 };
@@ -33,7 +35,7 @@ const catRemote: RemoteRoute = {
 const dogRemote: RemoteRoute = {
   label: "Dog",
   path: "/dog",
-  remoteUrl: "http://localhost:9003/remoteEntry.js",
+  remoteUrl: isProd? "https://d2yt125o7sij9g.cloudfront.net/dog/remoteEntry.js" : "http://localhost:9003/remoteEntry.js",
   scope: "dog",
   module: "./DogPage",
 };

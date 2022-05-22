@@ -5,10 +5,3 @@ type RemoteRoute = {
   scope: string,
   module: string
 };
-
-type RemoteRouteProps = {
-  path: string,
-  remoteUrl: string,
-  scope: string,
-  module: string
-};
