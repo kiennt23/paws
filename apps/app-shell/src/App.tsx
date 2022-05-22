@@ -41,36 +41,31 @@ const dogRemote: RemoteRoute = {
 const remotePages = [homeRemote, catRemote, dogRemote];
 
 const App: React.FC = (props) => {
-
   const menuLinks = remotePages.map((remote) => {
     const { path, label } = remote;
-    return (
-      <MenuLink to={path}>
-        {label}
-      </MenuLink>
-    );
+    return <MenuLink key={path} to={path}>{label}</MenuLink>;
   });
 
   const routes = remotePages.map((remote) => {
-    const { path, remoteUrl, scope, module } = remote;
+    const { label, path, remoteUrl, scope, module } = remote;
     return (
       <RemoteRoute
-          path={path}
-          remoteUrl={remoteUrl}
-          scope={scope}
-          module={module}
-        />
-    )
-  })
+        key={path}
+        label={label}
+        path={path}
+        remoteUrl={remoteUrl}
+        scope={scope}
+        module={module}
+      />
+    );
+  });
   return (
     <div className="grid-container">
       <Router>
         <div className="header">
           <img className="logo" src={Logo} />
         </div>
-        <div className="menu">
-          {menuLinks}
-        </div>
+        <div className="menu">{menuLinks}</div>
         <div className="page-content">
           <ErrorBoundary>
             <Switch>
