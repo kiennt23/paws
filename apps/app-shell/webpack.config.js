@@ -37,11 +37,11 @@ const config = {
   plugins: [
     new ModuleFederationPlugin({
       name: 'app-shell',
-      remotes: {
-        home: `home@${getHomeRemoteEntryURL()}`,
-        cat: `cat@${getCatRemoteEntryURL()}`,
-        dog: `dog@${getDogRemoteEntryURL()}`
-      },
+      // remotes: {
+      //   home: `home@${getHomeRemoteEntryURL()}`,
+      //   cat: `cat@${getCatRemoteEntryURL()}`,
+      //   dog: `dog@${getDogRemoteEntryURL()}`
+      // },
       // shared: { react: { singleton: true }, "react-dom": { singleton: true } },
     }),
     new HtmlWebpackPlugin({
@@ -64,19 +64,19 @@ if (isProd) {
   };
 }
 
-function getHomeRemoteEntryURL() {
-  if (isProd) return "https://d2yt125o7sij9g.cloudfront.net/home/remoteEntry.js"
-  return "http://localhost:9001/remoteEntry.js"
-}
+// function getHomeRemoteEntryURL() {
+//   if (isProd) return "https://d2yt125o7sij9g.cloudfront.net/home/remoteEntry.js"
+//   return "http://localhost:9001/remoteEntry.js"
+// }
 
-function getCatRemoteEntryURL() {
-  if (isProd) return "https://d2yt125o7sij9g.cloudfront.net/cat/remoteEntry.js"
-  return "http://localhost:9002/remoteEntry.js"
-}
+// function getCatRemoteEntryURL() {
+//   if (isProd) return "https://d2yt125o7sij9g.cloudfront.net/cat/remoteEntry.js"
+//   return "http://localhost:9002/remoteEntry.js"
+// }
 
-function getDogRemoteEntryURL() {
-  if (isProd) return "https://d2yt125o7sij9g.cloudfront.net/dog/remoteEntry.js"
-  return "http://localhost:9003/remoteEntry.js"
-}
+// function getDogRemoteEntryURL() {
+//   if (isProd) return "https://d2yt125o7sij9g.cloudfront.net/dog/remoteEntry.js"
+//   return "http://localhost:9003/remoteEntry.js"
+// }
 
 module.exports = config;

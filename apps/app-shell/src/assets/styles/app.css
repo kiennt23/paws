@@ -25,6 +25,11 @@
     padding: 5px;
 }
 
+.menu-item.active {
+    font-style: italic;
+    background-color: #56669e;
+}
+
 .menu-item a {
     color: aliceblue;
 }
