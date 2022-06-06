@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Link, Route, useHistory } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { useFederatedComponent } from "../hooks/useFederatedComponent";
 
 const ErrorRemoteModule: React.FC<{ label: string; path: string }> = ({ label, path }) => {
@@ -20,8 +20,6 @@ const RemoteRoute: React.FC<RemoteRoute> = ({
     scope,
     module
   );
-
-  const history = useHistory();
 
   return (
     <Route path={path}>
