@@ -61,6 +61,7 @@ if (isProd) {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
+    historyApiFallback: true
   };
 }
 
