@@ -1,10 +1,10 @@
 import React, { Suspense } from "react";
-import { Route, useHistory } from "react-router-dom";
+import { Link, Route, useHistory } from "react-router-dom";
 import { useFederatedComponent } from "../hooks/useFederatedComponent";
 
-const ErrorRemoteModule: React.FC<{ label: string; onReload?: () => void }> = ({ label, onReload }) => {
+const ErrorRemoteModule: React.FC<{ label: string; path: string }> = ({ label, path }) => {
   return <div className="error-page">
-    Error loading {label} page {" "} <button onClick={() => onReload && onReload()}>reload</button>
+    Error loading {label} page {" "} <a href="">reload</a>
   </div>
 }
 
@@ -27,7 +27,7 @@ const RemoteRoute: React.FC<RemoteRoute> = ({
     <Route path={path}>
       <Suspense fallback="Loading">
         {errorLoading
-          ? <ErrorRemoteModule label={label} onReload={() => history.go(0)} />
+          ? <ErrorRemoteModule label={label} path={path} />
           : FederatedComponent && <FederatedComponent />}
       </Suspense>
     </Route>
