@@ -55,3 +55,12 @@
   margin: auto;
   text-align: center;
 }
+
+.loading {
+  color: black;
+  height: 300px;
+  line-height: 300px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}

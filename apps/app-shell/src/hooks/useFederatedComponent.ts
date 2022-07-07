@@ -95,5 +95,5 @@ export const useFederatedComponent = (
     // key includes all dependencies (scope/module)
   }, [Component, ready, key]);
 
-  return { errorLoading, Component };
+  return { loading: !ready && !errorLoading, errorLoading, Component };
 };
