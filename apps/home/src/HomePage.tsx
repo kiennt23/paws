@@ -1,25 +1,27 @@
 import React from "react";
-// import DogCatImage from "./assets/images/cute-dog-cat.jpeg";
 import "./assets/styles/home.css";
+import ErrorBoundary from "./components/ErrorBoundary";
+import RemoteComponent from "./components/RemoteComponent";
 
-const FavouriteCatTile = React.lazy(() => import("cat/FavouriteCatTile"));
-const FavouriteDogTile = React.lazy(() => import("dog/FavouriteDogTile"));
+const isProd = process.env.NODE_ENV === "production";
 
-const HomePage: React.FC = (props) => {
+const catRemoteUrl = isProd ? "https://d2yt125o7sij9g.cloudfront.net/cat/remoteEntry.js" : "http://localhost:9002/remoteEntry.js";
+const dogRemoteUrl = isProd ? "https://d2yt125o7sij9g.cloudfront.net/dog/remoteEntry.js" : "http://localhost:9003/remoteEntry.js";
+
+const HomePage: React.FC = () => {
   return <div className="home-container">
     <span className="favourite-item"><h2>This month favourite</h2></span>
     <span className="favourite-item">
-      <React.Suspense fallback="Loading">
-        <FavouriteCatTile />
-      </React.Suspense>
+      <ErrorBoundary>
+        <RemoteComponent remoteUrl={catRemoteUrl} scope="cat" module="./FavouriteCatTile" />
+      </ErrorBoundary>
     </span>
     <span className="favourite-item">
-      <React.Suspense fallback="Loading">
-        <FavouriteDogTile />
-      </React.Suspense>
+      <ErrorBoundary>
+        <RemoteComponent remoteUrl={dogRemoteUrl} scope="dog" module="./FavouriteDogTile" />
+      </ErrorBoundary>
     </span>
     <span className="favourite-item"><h2>This month favourite</h2></span>
-    {/* <img src={DogCatImage} /> */}
   </div>;
 };
 

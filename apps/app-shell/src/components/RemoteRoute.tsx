@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Route } from "react-router-dom";
 import { useFederatedComponent } from "../hooks/useFederatedComponent";
 
 const Loading = () => <div className="loading">Loading...</div>;
 
-const ErrorRemoteModule: React.FC<{ label: string; path: string }> = ({ label, path }) => {
+const ErrorRemoteModule: React.FC<{ label: string; path: string }> = ({ label }) => {
   return <div className="error-page">
     Error loading {label} page {" "} <a href="">reload</a>
   </div>
@@ -34,7 +34,9 @@ const RemoteRoute: React.FC<RemoteRoute> = ({
 
   return (
     <Route path={path}>
-      {renderPage()}
+      <Suspense fallback={<Loading />}>
+        {renderPage()}
+      </Suspense>
     </Route>
   );
 };
