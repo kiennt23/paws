@@ -43,7 +43,7 @@ const config = {
         './DogPage': './src/DogPage',
         './FavouriteDogTile': './src/components/FavouriteDogTile',
       },
-      // shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
+      shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
@@ -75,6 +75,7 @@ if (isProd) {
     minimizer: [new TerserWebpackPlugin()],
   };
 } else {
+  config.devtool = "eval-cheap-module-source-map";
   config.devServer = {
     port: 9003,
     static: {

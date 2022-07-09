@@ -38,14 +38,14 @@ const config = {
     new ModuleFederationPlugin({
       name: 'home',
       filename: 'remoteEntry.js',
-      remotes: {
-        cat: `cat@${getCatRemoteEntryURL()}`,
-        dog: `dog@${getDogRemoteEntryURL()}`
-      },
+      // remotes: {
+      //   cat: `cat@${getCatRemoteEntryURL()}`,
+      //   dog: `dog@${getDogRemoteEntryURL()}`
+      // },
       exposes: {
         './HomePage': './src/HomePage'
       },
-      // shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
+      shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
@@ -60,6 +60,7 @@ if (isProd) {
     minimizer: [new TerserWebpackPlugin()],
   };
 } else {
+  config.devtool = "eval-cheap-module-source-map";
   config.devServer = {
     port: 9001,
     static: {
@@ -68,14 +69,14 @@ if (isProd) {
   };
 }
 
-function getCatRemoteEntryURL() {
-  if (isProd) return "https://d2yt125o7sij9g.cloudfront.net/cat/remoteEntry.js"
-  return "http://localhost:9002/remoteEntry.js"
-}
-
-function getDogRemoteEntryURL() {
-  if (isProd) return "https://d2yt125o7sij9g.cloudfront.net/dog/remoteEntry.js"
-  return "http://localhost:9003/remoteEntry.js"
-}
+// function getCatRemoteEntryURL() {
+//   if (isProd) return "https://d2yt125o7sij9g.cloudfront.net/cat/remoteEntry.js"
+//   return "http://localhost:9002/remoteEntry.js"
+// }
+//
+// function getDogRemoteEntryURL() {
+//   if (isProd) return "https://d2yt125o7sij9g.cloudfront.net/dog/remoteEntry.js"
+//   return "http://localhost:9003/remoteEntry.js"
+// }
 
 module.exports = config;
