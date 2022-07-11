@@ -1,5 +1,5 @@
 type RemoteComponent = {
-    remoteUrl: string
-    scope: string,
-    module: string
-  };
+  remoteUrl: string
+  scope: string,
+  module: string
+};
