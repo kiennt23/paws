@@ -1,0 +1,25 @@
+.menu-item {
+    padding: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu-item.active {
+    font-style: italic;
+    background-color: #56669e;
+}
+
+.menu-item:hover {
+    background-color: #445083;
+}
+
+.menu-item a {
+    color: aliceblue;
+}
+
+.menu-item a:visited {
+    color: aliceblue;
+}
+
+.menu-item a:active {
+    color: blue;
+}

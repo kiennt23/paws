@@ -1,8 +1,7 @@
 import React, { Suspense } from "react";
 import { Route } from "react-router-dom";
 import { useFederatedComponent } from "../hooks/useFederatedComponent";
-
-const Loading = () => <div className="loading">Loading...</div>;
+import Loading from "./Loading";
 
 const ErrorRemoteModule: React.FC<{ label: string; path: string }> = ({ label }) => {
   return <div className="error-page">
@@ -30,7 +29,7 @@ const RemoteRoute: React.FC<RemoteRoute> = ({
     }
     return FederatedComponent && <FederatedComponent />;
   }
-  
+
 
   return (
     <Route path={path}>

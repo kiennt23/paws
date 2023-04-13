@@ -29,7 +29,23 @@ const config = {
         type: 'asset/resource'
       },
       {
+        test: /\.module\.css$/i,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                exportLocalsConvention: 'camelCaseOnly',
+              },
+            },
+          },
+        ],
+      },
+      {
         test: /\.css$/i,
+        exclude: /\.module\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
     ],

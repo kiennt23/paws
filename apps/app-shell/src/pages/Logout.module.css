@@ -1,0 +1,32 @@
+.logout-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 128px);
+    background-color: #4d7aa2;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding: 24px 24px 32px;
+}
+
+.relogin-button {
+    margin-top: 16px;
+    padding: 8px 16px;
+    background-color: #fff;
+    color: #4d7aa2;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.relogin-button:hover {
+    background-color: #4d7aa2;
+    color: #fff;
+}

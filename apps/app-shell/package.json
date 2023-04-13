@@ -21,6 +21,7 @@
     "build": "cross-env NODE_ENV=production webpack"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.0.1",
     "react": "16",
     "react-dom": "16",
     "react-router-dom": "5.3.1"
